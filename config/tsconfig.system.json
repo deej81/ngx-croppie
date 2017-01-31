@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "outFile": "../dist/ngx-croppie-bundle.js"
+  },
+  "files": [
+    "../src/ngx-croppie.ts"
+  ]
+}
