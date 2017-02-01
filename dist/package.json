@@ -27,6 +27,7 @@
     "@angular/common": "^2.4.5",
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "croppie": "^2.4.0"
   }
 }

@@ -16,6 +16,7 @@ export default {
     'rxjs/add/observable/fromEvent': 'Rx.Observable',
     'rxjs/add/observable/merge': 'Rx.Observable',
     'rxjs/add/observable/throw': 'Rx.Observable',
-    'rxjs/add/observable/of': 'Rx.Observable'
+    'rxjs/add/observable/of': 'Rx.Observable',
+    'croppie': 'croppie'
   }
 }

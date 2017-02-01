@@ -15,5 +15,5 @@ import { NgxCroppieComponent } from './ngx-croppie.component';
     ]
 })
 export class NgxCroppieModule {
-
+    
 }
