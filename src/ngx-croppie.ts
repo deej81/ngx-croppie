@@ -1,11 +1,19 @@
+
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import { NgxCroppieComponent } from './ngx-croppie.component';
+
 
 @NgModule({
     imports: [CommonModule],
     declarations: [
+        NgxCroppieComponent
     ],
     providers: [],
-    exports: []
+    exports: [
+        NgxCroppieComponent
+    ]
 })
-export class NgxCroppie { }
+export class NgxCroppieModule {
+
+}

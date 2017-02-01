@@ -1,8 +1,6 @@
-.idea
-aot
 node_modules
+.vscode
+.idea
+.DS_Store
 npm-debug.log
-/typings
-*.map
-/docs/build
-ngfactory
+*.ngsummary.json

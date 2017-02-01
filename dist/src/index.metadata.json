@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":3,"metadata":{},"exports":[{"from":"./ngx-croppie","export":["NgxCroppieModule"]},{"from":"./ngx-croppie.component","export":["NgxCroppieComponent"]}]},{"__symbolic":"module","version":1,"metadata":{},"exports":[{"from":"./ngx-croppie","export":["NgxCroppieModule"]},{"from":"./ngx-croppie.component","export":["NgxCroppieComponent"]}]}]
