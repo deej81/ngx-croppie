@@ -13,7 +13,6 @@ export var NgxCroppieComponent = (function () {
     NgxCroppieComponent.prototype.newResult = function () {
         var _this = this;
         this._croppie.result({ type: 'base64', size: 'viewport' }).then(function (res) {
-            console.log(res);
             _this.result.emit(res);
         });
     };
