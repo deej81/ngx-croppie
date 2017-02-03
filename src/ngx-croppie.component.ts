@@ -5,7 +5,7 @@ import {CroppieOptions} from 'croppie';
 
 @Component({
     selector: 'ngx-croppie',
-    template: `<div #imageEdit style="background-color:red" (update)="newResult($event)"></div>`,
+    template: `<div #imageEdit (update)="newResult($event)"></div>`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
