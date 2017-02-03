@@ -1,7 +1,7 @@
 {
   "name": "ngx-croppie",
   "version": "0.0.1",
-  "description": "",
+  "description": "Simple angular wrapper around croppie (WIP)",
   "main": "index.js",
   "scripts": {
     "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",

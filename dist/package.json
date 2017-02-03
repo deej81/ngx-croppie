@@ -1,7 +1,7 @@
 {
   "name": "ngx-croppie",
   "version": "0.0.1",
-  "description": "ngx croppie",
+  "description": "Simple angular wrapper around croppie (WIP)",
   "main": "bundles/ngx-croppie.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -9,7 +9,6 @@
   "keywords": [
     "angular",
     "angular2",
-    "angular 2",
     "croppie"
   ],
   "author": "Dan Jordan",

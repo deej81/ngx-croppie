@@ -25,7 +25,7 @@ export class NgxCroppieComponent implements OnInit {
     }
 
     newResult() {
-        this._croppie.result({type: 'base64'}).then((res) => {
+        this._croppie.result({type: 'base64', size: 'viewport'}).then((res) => {
             console.log(res);
             this.result.emit(res);
         });

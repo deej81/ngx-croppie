@@ -11,7 +11,6 @@ var NgxCroppieComponent = (function () {
         this.result = new _angular_core.EventEmitter();
     }
     NgxCroppieComponent.prototype.ngOnInit = function () {
-        console.log('reference', this.imageEdit.nativeElement);
         this._croppie = new Croppie(this.imageEdit.nativeElement, this.croppieOptions);
         this._croppie.bind({
             url: this.imageUrl
@@ -19,8 +18,7 @@ var NgxCroppieComponent = (function () {
     };
     NgxCroppieComponent.prototype.newResult = function () {
         var _this = this;
-        console.log('onchange event');
-        this._croppie.result({ type: 'base64' }).then(function (res) {
+        this._croppie.result({ type: 'base64', size: 'viewport' }).then(function (res) {
             console.log(res);
             _this.result.emit(res);
         });
