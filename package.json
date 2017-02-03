@@ -1,6 +1,6 @@
 {
   "name": "ngx-croppie",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple angular wrapper around croppie (WIP)",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "bundling": "rollup -c",
     "minify": "uglifyjs dist/bundles/ngx-croppie.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ngx-croppie.umd.min.js",
     "copy": "copyfiles LICENSE README.md dist",
-    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy"
+    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy",
+    "publish": "npm run build && npm version patch && cd dist && npm version patch && npm publish && cd.."
   },
   "keywords": [
     "angular",
