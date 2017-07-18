@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import Croppie from 'croppie';
-export var NgxCroppieComponent = (function () {
+var NgxCroppieComponent = (function () {
     function NgxCroppieComponent() {
         this.result = new EventEmitter();
     }
@@ -37,4 +37,5 @@ export var NgxCroppieComponent = (function () {
     };
     return NgxCroppieComponent;
 }());
+export { NgxCroppieComponent };
 //# sourceMappingURL=ngx-croppie.component.js.map

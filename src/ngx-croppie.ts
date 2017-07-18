@@ -1,5 +1,4 @@
-
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { NgxCroppieComponent } from './ngx-croppie.component';
 

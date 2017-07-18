@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxCroppieComponent } from './ngx-croppie.component';
-export var NgxCroppieModule = (function () {
+var NgxCroppieModule = (function () {
     function NgxCroppieModule() {
     }
     NgxCroppieModule.decorators = [
@@ -20,4 +20,5 @@ export var NgxCroppieModule = (function () {
     NgxCroppieModule.ctorParameters = function () { return []; };
     return NgxCroppieModule;
 }());
+export { NgxCroppieModule };
 //# sourceMappingURL=ngx-croppie.js.map
