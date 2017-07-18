@@ -11,10 +11,15 @@ var NgxCroppieComponent = (function () {
         this.result = new _angular_core.EventEmitter();
     }
     NgxCroppieComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this._croppie = new Croppie(this.imageEdit.nativeElement, this.croppieOptions);
         this._croppie.bind({
             url: this.imageUrl
         });
+        this.bind = function () {
+            console.log('binding');
+            _this._croppie.bind({ url: _this.imageUrl });
+        };
     };
     NgxCroppieComponent.prototype.newResult = function () {
         var _this = this;
@@ -25,9 +30,7 @@ var NgxCroppieComponent = (function () {
     NgxCroppieComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'ngx-croppie',
-                    template: "<div #imageEdit style=\"background-color:red\" (update)=\"newResult($event)\"></div>",
-                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-                    encapsulation: _angular_core.ViewEncapsulation.None
+                    template: "<div #imageEdit (update)=\"newResult($event)\"></div>"
                 },] },
     ];
     /** @nocollapse */
@@ -36,6 +39,7 @@ var NgxCroppieComponent = (function () {
         'imageEdit': [{ type: _angular_core.ViewChild, args: ['imageEdit',] },],
         'croppieOptions': [{ type: _angular_core.Input },],
         'imageUrl': [{ type: _angular_core.Input },],
+        'bind': [{ type: _angular_core.Input },],
         'result': [{ type: _angular_core.Output },],
     };
     return NgxCroppieComponent;

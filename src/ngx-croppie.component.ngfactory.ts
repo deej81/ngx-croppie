@@ -22,12 +22,14 @@ export class Wrapper_NgxCroppieComponent {
   /*private*/ _changed:boolean;
   /*private*/ _expr_0:any;
   /*private*/ _expr_1:any;
+  /*private*/ _expr_2:any;
   subscription0:any;
   constructor() {
     this._changed = false;
     this.context = new import0.NgxCroppieComponent();
     this._expr_0 = import1.UNINITIALIZED;
     this._expr_1 = import1.UNINITIALIZED;
+    this._expr_2 = import1.UNINITIALIZED;
   }
   ngOnDetach(view:import2.AppView<any>,componentView:import2.AppView<any>,el:any):void {
   }
@@ -46,6 +48,13 @@ export class Wrapper_NgxCroppieComponent {
       this._changed = true;
       this.context.imageUrl = currValue;
       this._expr_1 = currValue;
+    }
+  }
+  check_bind(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+    if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_2,currValue))) {
+      this._changed = true;
+      this.context.bind = currValue;
+      this._expr_2 = currValue;
     }
   }
   ngDoCheck(view:import2.AppView<any>,el:any,throwOnChange:boolean):boolean {
@@ -86,7 +95,7 @@ class View_NgxCroppieComponent_Host0 extends import2.AppView<any> {
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    if (this._NgxCroppieComponent_0_3.ngDoCheck(this,this._el_0,throwOnChange)) { this.compView_0.markAsCheckOnce(); }
+    this._NgxCroppieComponent_0_3.ngDoCheck(this,this._el_0,throwOnChange);
     this.compView_0.internalDetectChanges(throwOnChange);
   }
   destroyInternal():void {
@@ -104,12 +113,12 @@ export class View_NgxCroppieComponent0 extends import2.AppView<import0.NgxCroppi
   _viewQuery_imageEdit_0:import9.QueryList<any>;
   _el_0:any;
   constructor(viewUtils:import3.ViewUtils,parentView:import2.AppView<any>,parentIndex:number,parentElement:any) {
-    super(View_NgxCroppieComponent0,renderType_NgxCroppieComponent,import6.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import7.ChangeDetectorStatus.CheckOnce);
+    super(View_NgxCroppieComponent0,renderType_NgxCroppieComponent,import6.ViewType.COMPONENT,viewUtils,parentView,parentIndex,parentElement,import7.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import8.ComponentRef<any> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.parentElement);
     this._viewQuery_imageEdit_0 = new import9.QueryList<any>();
-    this._el_0 = import3.createRenderElement(this.renderer,parentRenderNode,'div',new import3.InlineArray2(2,'style','background-color:red'),(null as any));
+    this._el_0 = import3.createRenderElement(this.renderer,parentRenderNode,'div',import3.EMPTY_INLINE_ARRAY,(null as any));
     var disposable_0:Function = import3.subscribeToRenderElement(this,this._el_0,new import3.InlineArray2(2,'update',(null as any)),this.eventHandler(this.handleEvent_0));
     this._viewQuery_imageEdit_0.reset([new import10.ElementRef(this._el_0)]);
     this.context.imageEdit = this._viewQuery_imageEdit_0.first;
