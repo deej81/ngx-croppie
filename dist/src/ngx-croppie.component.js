@@ -10,8 +10,7 @@ export var NgxCroppieComponent = (function () {
         this._croppie.bind({
             url: this.imageUrl
         });
-        this.bind = function () {
-            console.log('binding');
+        this.bind = function (img) {
             _this._croppie.bind({ url: _this.imageUrl });
         };
     };
