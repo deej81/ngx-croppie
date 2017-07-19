@@ -5,7 +5,7 @@ import { CroppieOptions } from 'croppie';
 
 @Component({
     selector: 'ngx-croppie',
-    template: `<div #imageEdit (update)="newResult($event)"></div>`
+    template: `<div #imageEdit (update)="newResult()"></div>`
 })
 export class NgxCroppieComponent implements OnInit {
     @ViewChild('imageEdit') imageEdit: ElementRef;
