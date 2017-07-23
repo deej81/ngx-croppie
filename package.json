@@ -41,5 +41,6 @@
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.1",
     "zone.js": "^0.7.2"
-  }
+  },
+  "readme": "./README.md"
 }
