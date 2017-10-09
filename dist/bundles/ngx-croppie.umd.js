@@ -6,7 +6,7 @@
 
 Croppie = 'default' in Croppie ? Croppie['default'] : Croppie;
 
-var NgxCroppieComponent = (function () {
+var NgxCroppieComponent = /** @class */ (function () {
     function NgxCroppieComponent() {
         this.result = new _angular_core.EventEmitter();
     }
@@ -29,7 +29,7 @@ var NgxCroppieComponent = (function () {
     NgxCroppieComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'ngx-croppie',
-                    template: "<div #imageEdit (update)=\"newResult($event)\"></div>"
+                    template: "<div #imageEdit (update)=\"newResult()\"></div>"
                 },] },
     ];
     /** @nocollapse */
@@ -44,7 +44,7 @@ var NgxCroppieComponent = (function () {
     return NgxCroppieComponent;
 }());
 
-var NgxCroppieModule = (function () {
+var NgxCroppieModule = /** @class */ (function () {
     function NgxCroppieModule() {
     }
     NgxCroppieModule.decorators = [

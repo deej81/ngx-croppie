@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import Croppie from 'croppie';
-var NgxCroppieComponent = (function () {
+var NgxCroppieComponent = /** @class */ (function () {
     function NgxCroppieComponent() {
         this.result = new EventEmitter();
     }
@@ -23,7 +23,7 @@ var NgxCroppieComponent = (function () {
     NgxCroppieComponent.decorators = [
         { type: Component, args: [{
                     selector: 'ngx-croppie',
-                    template: "<div #imageEdit (update)=\"newResult($event)\"></div>"
+                    template: "<div #imageEdit (update)=\"newResult()\"></div>"
                 },] },
     ];
     /** @nocollapse */
