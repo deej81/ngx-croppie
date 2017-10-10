@@ -12,7 +12,8 @@ export class NgxCroppieComponent implements OnInit {
     @Input() croppieOptions: CroppieOptions;
     @Input() imageUrl: string;
     @Input() bind: (img: string) => void;
-    @Output() result: EventEmitter<string> = new EventEmitter<string>();
+    @Input() croppieResult: Object = { type: 'base64', size: 'viewport' };
+    @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement> = new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
 
     private _croppie: Croppie;
     ngOnInit(): void {
@@ -27,7 +28,7 @@ export class NgxCroppieComponent implements OnInit {
     }
 
     newResult() {
-        this._croppie.result({ type: 'base64', size: 'viewport' }).then((res) => {
+        this._croppie.result(this.croppieResult).then((res) => {
             this.result.emit(res);
         });
     }
