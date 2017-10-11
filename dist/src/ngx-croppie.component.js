@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core
 import Croppie from 'croppie';
 var NgxCroppieComponent = /** @class */ (function () {
     function NgxCroppieComponent() {
+        this.outputFormatOptions = { type: 'base64', size: 'viewport' };
         this.result = new EventEmitter();
     }
     NgxCroppieComponent.prototype.ngOnInit = function () {
@@ -16,7 +17,7 @@ var NgxCroppieComponent = /** @class */ (function () {
     };
     NgxCroppieComponent.prototype.newResult = function () {
         var _this = this;
-        this._croppie.result({ type: 'base64', size: 'viewport' }).then(function (res) {
+        this._croppie.result(this.outputFormatOptions).then(function (res) {
             _this.result.emit(res);
         });
     };
@@ -33,6 +34,7 @@ var NgxCroppieComponent = /** @class */ (function () {
         'croppieOptions': [{ type: Input },],
         'imageUrl': [{ type: Input },],
         'bind': [{ type: Input },],
+        'outputFormatOptions': [{ type: Input },],
         'result': [{ type: Output },],
     };
     return NgxCroppieComponent;

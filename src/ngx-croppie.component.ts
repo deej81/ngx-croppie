@@ -1,7 +1,13 @@
 import { NgxCroppieModule } from './ngx-croppie';
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation, OnInit, ViewChild, ElementRef } from '@angular/core';
 import Croppie from 'croppie';
-import { CroppieOptions } from 'croppie';
+import { CroppieOptions, ResultOptions } from 'croppie';
+
+export type Type = 'canvas' | 'base64' | 'html' | 'blob' | 'rawcanvas';
+
+export interface TempResultOptions extends ResultOptions {
+    type?: Type;
+}
 
 @Component({
     selector: 'ngx-croppie',
@@ -12,7 +18,8 @@ export class NgxCroppieComponent implements OnInit {
     @Input() croppieOptions: CroppieOptions;
     @Input() imageUrl: string;
     @Input() bind: (img: string) => void;
-    @Output() result: EventEmitter<string> = new EventEmitter<string>();
+    @Input() outputFormatOptions: TempResultOptions = { type: 'base64', size: 'viewport' };
+    @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement> = new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
 
     private _croppie: Croppie;
     ngOnInit(): void {
@@ -27,7 +34,7 @@ export class NgxCroppieComponent implements OnInit {
     }
 
     newResult() {
-        this._croppie.result({ type: 'base64', size: 'viewport' }).then((res) => {
+        this._croppie.result(this.outputFormatOptions).then((res) => {
             this.result.emit(res);
         });
     }

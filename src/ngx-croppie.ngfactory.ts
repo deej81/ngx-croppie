@@ -17,4 +17,4 @@ export const NgxCroppieModuleNgFactory:i0.NgModuleFactory<i1.NgxCroppieModule> =
           i2.CommonModule,([] as any[])),i0.ɵmpd(512,i1.NgxCroppieModule,i1.NgxCroppieModule,
           ([] as any[]))]);
     });
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvZGFuLmpvcmRhbi9Eb2N1bWVudHMvcHJvamVjdHMvbmd4LWNyb3BwaWUvc3JjL25neC1jcm9wcGllLm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL2Rhbi5qb3JkYW4vRG9jdW1lbnRzL3Byb2plY3RzL25neC1jcm9wcGllL3NyYy9uZ3gtY3JvcHBpZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIgIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7OyJ9
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvZGVlai9Eb2N1bWVudHMvR2l0SHViL25neC1jcm9wcGllL3NyYy9uZ3gtY3JvcHBpZS5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9kZWVqL0RvY3VtZW50cy9HaXRIdWIvbmd4LWNyb3BwaWUvc3JjL25neC1jcm9wcGllLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIiAiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7In0=
