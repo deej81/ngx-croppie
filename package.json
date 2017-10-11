@@ -1,6 +1,6 @@
 {
   "name": "ngx-croppie",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Simple angular wrapper around croppie (WIP)",
   "main": "dist/bundles/ngx-croppie.umd.js",
   "scripts": {
