@@ -3,17 +3,16 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEn
 import Croppie from 'croppie';
 import { CroppieOptions, ResultOptions } from 'croppie';
 
-@Component({
-    selector: 'ngx-croppie',
-    template: `<div #imageEdit (update)="newResult()"></div>`
-})
-
 export type Type = 'canvas' | 'base64' | 'html' | 'blob' | 'rawcanvas';
 
 export interface TempResultOptions extends ResultOptions {
     type?: Type;
 }
 
+@Component({
+    selector: 'ngx-croppie',
+    template: `<div #imageEdit (update)="newResult()"></div>`
+})
 export class NgxCroppieComponent implements OnInit {
     @ViewChild('imageEdit') imageEdit: ElementRef;
     @Input() croppieOptions: CroppieOptions;

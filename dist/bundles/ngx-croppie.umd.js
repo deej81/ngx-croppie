@@ -8,6 +8,7 @@ Croppie = 'default' in Croppie ? Croppie['default'] : Croppie;
 
 var NgxCroppieComponent = /** @class */ (function () {
     function NgxCroppieComponent() {
+        this.outputFormatOptions = { type: 'base64', size: 'viewport' };
         this.result = new _angular_core.EventEmitter();
     }
     NgxCroppieComponent.prototype.ngOnInit = function () {
@@ -22,7 +23,7 @@ var NgxCroppieComponent = /** @class */ (function () {
     };
     NgxCroppieComponent.prototype.newResult = function () {
         var _this = this;
-        this._croppie.result({ type: 'base64', size: 'viewport' }).then(function (res) {
+        this._croppie.result(this.outputFormatOptions).then(function (res) {
             _this.result.emit(res);
         });
     };
@@ -39,6 +40,7 @@ var NgxCroppieComponent = /** @class */ (function () {
         'croppieOptions': [{ type: _angular_core.Input },],
         'imageUrl': [{ type: _angular_core.Input },],
         'bind': [{ type: _angular_core.Input },],
+        'outputFormatOptions': [{ type: _angular_core.Input },],
         'result': [{ type: _angular_core.Output },],
     };
     return NgxCroppieComponent;
