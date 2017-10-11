@@ -7,12 +7,19 @@ import { CroppieOptions, ResultOptions } from 'croppie';
     selector: 'ngx-croppie',
     template: `<div #imageEdit (update)="newResult()"></div>`
 })
+
+export type Type = 'canvas' | 'base64' | 'html' | 'blob' | 'rawcanvas';
+
+export interface TempResultOptions extends ResultOptions {
+    type?: Type;
+}
+
 export class NgxCroppieComponent implements OnInit {
     @ViewChild('imageEdit') imageEdit: ElementRef;
     @Input() croppieOptions: CroppieOptions;
     @Input() imageUrl: string;
     @Input() bind: (img: string) => void;
-    @Input() outputFormatOptions: ResultOptions = { type: 'base64', size: 'viewport' };
+    @Input() outputFormatOptions: TempResultOptions = { type: 'base64', size: 'viewport' };
     @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement> = new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
 
     private _croppie: Croppie;
