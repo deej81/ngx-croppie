@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,gBAAgB,EAAC,MAAM,eAAe,CAAC;AAE/C,OAAO,EAAC,mBAAmB,EAAC,MAAM,yBAAyB,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export {NgxCroppieModule} from './ngx-croppie';\r\n\r\nexport {NgxCroppieComponent} from './ngx-croppie.component';"]}
