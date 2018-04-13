@@ -41,4 +41,8 @@ export class NgxCroppieComponent implements OnInit {
             this.result.emit(res);
         });
     }
+
+    rotate(degrees: 90 | 180 | 270 | -90 | -180 | -270) {
+        this._croppie.rotate(degrees);
+    }
 }
