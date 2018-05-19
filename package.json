@@ -14,7 +14,7 @@
   },
   "private": false,
   "peerDependencies": {
-    "@types/croppie": "^2.5.2",
+    "@types/croppie": "^2.5.3",
     "croppie": "^2.6.2"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-    "@types/croppie": "^2.5.2",
+    "@types/croppie": "^2.5.3",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
