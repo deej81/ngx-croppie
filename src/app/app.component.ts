@@ -81,5 +81,12 @@ export class AppComponent implements OnInit, OnChanges {
     };
     fr.readAsDataURL(file);
   }
+
+  getCropPoints() {
+    if (this.ngxCroppie) {
+      alert("Crop points: " + this.ngxCroppie.get().points);
+    }
+  }
+
 }
 
