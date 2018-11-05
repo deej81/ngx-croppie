@@ -76,15 +76,17 @@ export class AppComponent implements OnInit, OnChanges {
     const file = evt.target.files[0];
     if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif' && file.type !== 'image/jpg') { return; }
     const fr = new FileReader();
-    fr.onloadend = (loadEvent) => {
-      this.croppieImage = fr.result;
+    fr.onloadend = (loadEvent: any) => {
+      this.croppieImage = loadEvent.target.result;
+      console.log('app.cmp: this.croppieImage', this.croppieImage);
+      // this.croppieImage = fr.result;
     };
     fr.readAsDataURL(file);
   }
 
   getCropPoints() {
     if (this.ngxCroppie) {
-      alert("Crop points: " + this.ngxCroppie.get().points);
+      alert('Crop points: ' + this.ngxCroppie.get().points);
     }
   }
 

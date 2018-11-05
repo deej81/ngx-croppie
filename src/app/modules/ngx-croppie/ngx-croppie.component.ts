@@ -1,4 +1,14 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    OnChanges,
+    SimpleChanges,
+    Input,
+    EventEmitter,
+    Output,
+    ViewChild,
+    ElementRef
+} from '@angular/core';
 
 import * as Croppie from 'croppie';
 import { CroppieOptions, ResultOptions, CropData } from 'croppie';
@@ -10,7 +20,7 @@ export type Type = 'canvas' | 'base64' | 'html' | 'blob' | 'rawcanvas';
     selector: 'ngx-croppie',
     template: `<div #imageEdit (update)="newResult()"></div>`
 })
-export class NgxCroppieComponent implements OnInit {
+export class NgxCroppieComponent implements OnInit, OnChanges {
     @ViewChild('imageEdit') imageEdit: ElementRef;
     @Input() croppieOptions: CroppieOptions;
     @Input() imageUrl: string;
@@ -31,6 +41,12 @@ export class NgxCroppieComponent implements OnInit {
         };
     }
 
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.imageUrl && !changes.imageUrl.firstChange) {
+            console.log('changed to ', this._croppie.data);
+        }
+    }
+
     newResult() {
         this._croppie.result(this.outputFormatOptions).then((res) => {
             this.result.emit(res);
@@ -41,8 +57,8 @@ export class NgxCroppieComponent implements OnInit {
         this._croppie.rotate(degrees);
     }
 
-  get(): CropData {
-      return this._croppie.get();
-  }
+    get(): CropData {
+        return this._croppie.get();
+    }
 
 }
