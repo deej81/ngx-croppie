@@ -1,0 +1,14 @@
+.f-style {
+  font-family: sans-serif;
+}
+.t-cntr {
+  text-align: center;
+}
+.mt-10 {
+  margin-top: 10px
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #f6f6f6;
+}

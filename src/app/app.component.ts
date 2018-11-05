@@ -8,11 +8,11 @@ import { NgxCroppieComponent } from './modules/ngx-croppie/ngx-croppie.component
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnChanges {
-  title = 'app works';
+  title = 'Ng Croppie';
   @ViewChild('ngxCroppie') ngxCroppie: NgxCroppieComponent;
 
-  widthPx = '400';
-  heightPx = '400';
+  widthPx = '200';
+  heightPx = '200';
   imageUrl = '';
   currentImage: string;
   croppieImage: string;
