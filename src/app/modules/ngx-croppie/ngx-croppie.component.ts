@@ -24,26 +24,28 @@ export class NgxCroppieComponent implements OnInit, OnChanges {
     @ViewChild('imageEdit') imageEdit: ElementRef;
     @Input() croppieOptions: CroppieOptions;
     @Input() imageUrl: string;
-    @Input() bind: (img: string) => void;
+    @Input() imgChangeNo: number;
+    // @Input() bind: (img: string) => void;
     @Input() outputFormatOptions: ResultOptions = { type: 'base64', size: 'viewport' };
     @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>
                     = new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
     private _croppie: Croppie;
+
+    constructor() {
+    }
+
     ngOnInit(): void {
         // https://github.com/Foliotek/Croppie/issues/470 :-( )
         this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
-
-        this._croppie.bind({
-            url: this.imageUrl
-        });
-        this.bind = (img: string) => {
-            this._croppie.bind({ url: this.imageUrl });
-        };
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (changes.imageUrl && !changes.imageUrl.firstChange) {
-            console.log('changed to ', this._croppie.data);
+        if (changes.imgChangeNo) {
+            setTimeout(() => {
+                this._croppie.bind({
+                    url: changes.imageUrl.currentValue
+                });
+            });
         }
     }
 
@@ -60,5 +62,4 @@ export class NgxCroppieComponent implements OnInit, OnChanges {
     get(): CropData {
         return this._croppie.get();
     }
-
 }
