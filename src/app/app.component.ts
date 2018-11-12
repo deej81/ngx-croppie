@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   public get imageToDisplay() {
     if (this.currentImage) { return this.currentImage; }
     if (this.imageUrl) { return this.imageUrl; }
-    return `http://placehold.it/${this.widthPx}x${this.heightPx}`;
+    return `https://placehold.it/${this.widthPx}x${this.heightPx}`;
   }
 
   public get croppieOptions(): CroppieOptions {
