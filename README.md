@@ -1,5 +1,5 @@
-# ngx-croppie (WIP)
+# ngx-croppie (w.i.p: more features to integrate such as Rotate)
 
-simple angular 2 wrapper around the excellent [croppie library](https://foliotek.github.io/Croppie/) for cropping images
+Simple NgX(2+) wrapper around the excellent [croppie library](https://foliotek.github.io/Croppie/) for cropping images. This is an improvement on the fork from [deej81/ngx-croppie](https://github.com/deej81/ngx-croppie)
 
-very basic [example](https://github.com/deej81/ngx-croppie-example)
+Check out the [demo](https://likspie208.github.io/ngx-croppie/)
