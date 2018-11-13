@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/croppie/croppie.css"
+        "../node_modules/croppie/croppie.css",
+        "assets/styles/sem-ui-button.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
