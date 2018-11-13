@@ -3,14 +3,15 @@
     {{title}}
   </h2>
   <div>
-    <img class="c-round" [src]="imageToDisplay" alt="" />
+    <img class="img-circle" [src]="imageToDisplay" alt="" />
   </div>
   <hr>
   <div class="mt-10">
     <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
   </div>
   <div class="mt-10">
-    <input type="file" id="fileupload" #imageUpload (change)="imageUploadEvent($event)" accept="image/jpeg, image/png" />
+    <input type="file" id="fileupload" #imageUpload (change)="imageUploadEvent($event)" accept="image/jpeg, image/png" hidden/>
+    <button type="button" class="ui button basic small orange" (click)="imageUpload.click()">Upload</button>
     <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelCroppieEdit()">Cancel</button> -->
     <button type="button" class="btn btn-primary" (click)="saveImageFromCroppie()">Save</button>
     <button type="button" class="btn btn-primary" (click)="getCropPoints()">Get crop points</button>

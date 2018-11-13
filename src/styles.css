@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-.croppie-container .cr-boundary, .c-round {
+.croppie-container .cr-boundary, .img-circle {
   border-radius: 200px;
+}
+.mr-5 {
+  margin-right: 5px
 }
