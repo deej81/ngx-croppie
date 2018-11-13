@@ -43,7 +43,8 @@ export class NgxCroppieComponent implements OnInit, OnChanges {
         if (changes.imgChangeNo) {
             setTimeout(() => {
                 this._croppie.bind({
-                    url: changes.imageUrl.currentValue
+                    url: changes.imageUrl.currentValue,
+                    orientation: 1
                 });
             });
         }

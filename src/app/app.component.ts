@@ -8,7 +8,7 @@ import { NgxCroppieComponent } from './modules/ngx-croppie/ngx-croppie.component
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Ng Croppie';
+  title = 'Ngx-Croppie';
   @ViewChild('ngxCroppie') ngxCroppie: NgxCroppieComponent;
 
   widthPx = '200';
@@ -28,13 +28,15 @@ export class AppComponent implements OnInit {
     const opts: CroppieOptions = {};
     opts.viewport = {
       width: parseInt(this.widthPx, 10),
-      height: parseInt(this.heightPx, 10)
+      height: parseInt(this.heightPx, 10),
+      type: 'circle'
     };
     opts.boundary = {
       width: parseInt(this.widthPx, 10),
       height: parseInt(this.heightPx, 10)
     };
     opts.enforceBoundary = true;
+    opts.enableOrientation = true;
     return opts;
   }
 
@@ -51,6 +53,16 @@ export class AppComponent implements OnInit {
 
   cancelCroppieEdit() {
     this.croppieImage = this.currentImage;
+  }
+
+  rotateDir(dir: string) { // dir: direction = {'l', 'r'}
+    const rotateLeft = 90;
+    const rotateRight = -90;
+    if (dir === 'l') {
+      this.ngxCroppie.rotate(rotateLeft);
+      return;
+    }
+    this.ngxCroppie.rotate(rotateRight);
   }
 
   imageUploadEvent(evt: any) {
