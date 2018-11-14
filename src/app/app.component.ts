@@ -13,14 +13,12 @@ export class AppComponent implements OnInit {
 
   widthPx = '200';
   heightPx = '200';
-  imageUrl = '';
   imgChangeNo = 0;
   currentImage: string;
   croppieImage: string;
 
   public get imageToDisplay() {
     if (this.currentImage) { return this.currentImage; }
-    if (this.imageUrl) { return this.imageUrl; }
     return `https://placehold.it/${this.widthPx}x${this.heightPx}`;
   }
 
@@ -37,6 +35,7 @@ export class AppComponent implements OnInit {
     };
     opts.enforceBoundary = true;
     opts.enableOrientation = true;
+    opts.showZoomer = false;
     return opts;
   }
 
@@ -49,6 +48,7 @@ export class AppComponent implements OnInit {
 
   saveImageFromCroppie() {
     this.currentImage = this.croppieImage;
+    this.croppieImage = null;
   }
 
   cancelCroppieEdit() {
@@ -56,6 +56,7 @@ export class AppComponent implements OnInit {
   }
 
   rotateDir(dir: string) { // dir: direction = {'l', 'r'}
+    if (!this.croppieImage) { return; }
     const rotateLeft = 90;
     const rotateRight = -90;
     if (dir === 'l') {

@@ -2,22 +2,24 @@
   <h2>
     {{title}}
   </h2>
-  <div>
+  <hr>
+  <div *ngIf="!croppieImage">
     <img class="img-circle" [src]="imageToDisplay" alt="" />
   </div>
-  <hr>
-  <div class="mt-10">
-    <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
-  </div>
+  <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
   <div class="mt-10">
     <input type="file" id="fileupload" #imageUpload (change)="imageUploadEvent($event)" accept="image/jpeg, image/png" hidden/>
     <button type="button" class="ui button basic small orange" (click)="imageUpload.click()">Upload</button>
     <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelCroppieEdit()">Cancel</button> -->
-    <button type="button" class="ui button basic small green" (click)="saveImageFromCroppie()">Save</button>
-    <button type="button" class="ui button basic small blue" (click)="rotateDir('l')">
-    <img src="assets/images/undo-solid.svg" class="mr-5" height="12">Rotate Left</button>
-    <button type="button" class="ui button basic small blue" (click)="rotateDir('r')">
-    <img src="assets/images/redo-solid.svg" class="mr-5" height="12">Rotate Right</button>
+    <span *ngIf="croppieImage">
+      <button type="button" class="ui button basic small green" (click)="saveImageFromCroppie()">Save</button>
+      <button type="button" class="ui button basic small blue" (click)="rotateDir('l')">
+        <img src="assets/images/undo-solid.svg" class="mr-5" height="12">Rotate Left
+      </button>
+      <button type="button" class="ui button basic small blue" (click)="rotateDir('r')">
+        <img src="assets/images/redo-solid.svg" class="mr-5" height="12">Rotate Right
+      </button>
+    </span>
     <!-- <button type="button" class="btn btn-primary" (click)="getCropPoints()">Get crop points</button> -->
   </div>
 </div>
