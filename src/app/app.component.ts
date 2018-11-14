@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
   }
 
   cancelCroppieEdit() {
-    this.croppieImage = this.currentImage;
+    this.croppieImage = null;
   }
 
   rotateDir(dir: string) { // dir: direction = {'l', 'r'}
