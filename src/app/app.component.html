@@ -10,7 +10,7 @@
     <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
     <p><strong>File Name</strong> : {{fileName}}</p>
   </div>
-  <div class="mt-10">
+  <div class="mt-20">
     <input type="file" id="fileupload" #imageUpload (change)="imageUploadEvent($event)" accept="image/jpeg, image/png" hidden/>
     <button type="button" *ngIf="!croppieImage && currentImage" class="ui button basic small grey" (click)="removeImage()">Remove</button>
     <button type="button" class="ui button basic small orange" (click)="imageUpload.click()">Browse</button>
