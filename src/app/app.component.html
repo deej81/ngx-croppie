@@ -6,10 +6,14 @@
   <div *ngIf="!croppieImage">
     <img class="img-circle" [src]="imageToDisplay" alt="" />
   </div>
-  <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
+  <div class="croppie-section" *ngIf="croppieImage">
+    <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
+    <p><strong>File Name</strong> : {{fileName}}</p>
+  </div>
   <div class="mt-10">
     <input type="file" id="fileupload" #imageUpload (change)="imageUploadEvent($event)" accept="image/jpeg, image/png" hidden/>
-    <button type="button" class="ui button basic small orange" (click)="imageUpload.click()">Upload</button>
+    <button type="button" *ngIf="!croppieImage" class="ui button basic small grey" (click)="removeImage()">Remove</button>
+    <button type="button" class="ui button basic small orange" (click)="imageUpload.click()">Browse</button>
     <!-- <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cancelCroppieEdit()">Cancel</button> -->
     <span *ngIf="croppieImage">
       <button type="button" class="ui button basic small green" (click)="saveImageFromCroppie()">Save</button>

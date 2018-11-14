@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   imgChangeNo = 0;
   currentImage: string;
   croppieImage: string;
+  fileName: string;
 
   public get imageToDisplay() {
     if (this.currentImage) { return this.currentImage; }
@@ -51,6 +52,10 @@ export class AppComponent implements OnInit {
     this.croppieImage = null;
   }
 
+  removeImage() {
+    this.currentImage = null;
+  }
+
   cancelCroppieEdit() {
     this.croppieImage = this.currentImage;
   }
@@ -71,6 +76,7 @@ export class AppComponent implements OnInit {
     if (!evt.target.files) { return; }
     if (evt.target.files.length !== 1) { return; }
     const file = evt.target.files[0];
+    this.fileName = file.name;
     if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/jpg') { return; }
     const fr = new FileReader();
     fr.onloadend = (loadEvent: any) => {
