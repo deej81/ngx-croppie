@@ -24,10 +24,11 @@ export class NgxCroppieComponent implements OnInit {
         this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
 
         this._croppie.bind({
-            url: this.imageUrl
+            url: this.imageUrl,
+            zoom: 0
         });
         this.bind = (img: string) => {
-            this._croppie.bind({ url: this.imageUrl });
+            this._croppie.bind({ url: this.imageUrl, zoom: 0 });
         };
     }
 
