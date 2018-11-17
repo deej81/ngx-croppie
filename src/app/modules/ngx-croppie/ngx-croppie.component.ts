@@ -14,6 +14,7 @@ export class NgxCroppieComponent implements OnInit {
     @ViewChild('imageEdit') imageEdit: ElementRef;
     @Input() croppieOptions: CroppieOptions;
     @Input() imageUrl: string;
+    @Input() points: number[];
     @Input() bind: (img: string) => void;
     @Input() outputFormatOptions: ResultOptions = { type: 'base64', size: 'viewport' };
     @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>
@@ -24,10 +25,10 @@ export class NgxCroppieComponent implements OnInit {
         this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
 
         this._croppie.bind({
-            url: this.imageUrl
+            url: this.imageUrl, points: this.points
         });
         this.bind = (img: string) => {
-            this._croppie.bind({ url: this.imageUrl });
+            this._croppie.bind({ url: this.imageUrl, points: this.points });
         };
     }
 

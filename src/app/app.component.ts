@@ -84,7 +84,7 @@ export class AppComponent implements OnInit, OnChanges {
 
   getCropPoints() {
     if (this.ngxCroppie) {
-      alert("Crop points: " + this.ngxCroppie.get().points);
+      alert('Crop points: ' + this.ngxCroppie.get().points);
     }
   }
 
