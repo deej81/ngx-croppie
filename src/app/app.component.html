@@ -7,7 +7,7 @@
     <img class="img-circle" [src]="imageToDisplay" alt="" />
   </div>
   <div class="croppie-section" *ngIf="croppieImage">
-    <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
+    <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [points]="[0, 0, 400, 400]" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
     <p><strong>File Name</strong> : {{fileName}}</p>
   </div>
   <div class="mt-20">
@@ -23,7 +23,7 @@
       <button type="button" class="ui button basic small blue" (click)="rotateDir('r')">
         <img src="assets/images/redo-solid.svg" class="mr-5" height="12">Rotate Right
       </button>
+      <button type="button" class="ui button basic small grey" (click)="getCropPoints()">Get crop points</button>
     </span>
-    <!-- <button type="button" class="btn btn-primary" (click)="getCropPoints()">Get crop points</button> -->
   </div>
 </div>

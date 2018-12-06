@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
 
   widthPx = '200';
   heightPx = '200';
-  imgChangeNo = 0;
   currentImage: string;
   croppieImage: string;
   fileName: string;
@@ -81,7 +80,6 @@ export class AppComponent implements OnInit {
     const fr = new FileReader();
     fr.onloadend = (loadEvent: any) => {
       this.croppieImage = loadEvent.target.result;
-      this.imgChangeNo++;
     };
     fr.readAsDataURL(file);
   }
