@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges } from '@angular/core';
 import { CroppieOptions } from 'croppie';
 import { NgxCroppieComponent } from './modules/ngx-croppie/ngx-croppie.component';
 
@@ -7,7 +7,7 @@ import { NgxCroppieComponent } from './modules/ngx-croppie/ngx-croppie.component
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnChanges {
   title = 'app works';
   @ViewChild('ngxCroppie') ngxCroppie: NgxCroppieComponent;
 
@@ -16,7 +16,6 @@ export class AppComponent implements OnInit{
   imageUrl = '';
   currentImage: string;
   croppieImage: string;
-  editedImage:string;
 
   public get imageToDisplay() {
     if (this.currentImage) { return this.currentImage; }
@@ -43,12 +42,27 @@ export class AppComponent implements OnInit{
     this.croppieImage = this.imageUrl;
   }
 
+  ngOnChanges(changes: any) {
+    if (this.croppieImage) { return; }
+    if (!changes.imageUrl) { return; }
+    if (!changes.imageUrl.previousValue && changes.imageUrl.currentValue) {
+      this.croppieImage = changes.imageUrl.currentValue;
+    }
+  }
+
+
+  // modalOpened() {
+  //   if (this.croppieImage) {
+  //     console.log('binding image to croppie');
+  //     this.ngxCroppie.bind();
+  //   }
+  // }
   newImageResultFromCroppie(img: string) {
-    this.editedImage = img;
+    this.croppieImage = img;
   }
 
   saveImageFromCroppie() {
-    this.currentImage = this.editedImage;
+    this.currentImage = this.croppieImage;
   }
 
   cancelCroppieEdit() {
