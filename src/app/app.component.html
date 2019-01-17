@@ -1,12 +1,12 @@
 <h1>
   {{title}}
 </h1>
-<div>
+<div *ngIf="!croppieImage">
   <img [src]="imageToDisplay" alt="" />
 </div>
 
 <div>
-  <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [points]="[0,0,400,400]" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
+  <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions" [imageUrl]="croppieImage" [points]="[0,0,400,400]" [imgChangeNo]="imgChangeNo" (result)="newImageResultFromCroppie($event)"></ngx-croppie>
 </div>
 <div>
   <input type="file" id="fileupload" #imageUpload (change)="imageUploadEvent($event)" accept="image/gif, image/jpeg, image/png"
