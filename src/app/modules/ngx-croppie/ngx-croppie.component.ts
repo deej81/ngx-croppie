@@ -15,6 +15,7 @@ export class NgxCroppieComponent implements OnInit {
 	@Input() croppieOptions: CroppieOptions;
 	@Input() points: number[];
 	@Input() outputFormatOptions: ResultOptions = { type: 'base64', size: 'viewport' };
+	@Input() defaultZoom = 0;
 	@Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>
 		= new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
 	private _croppie: Croppie;
@@ -26,14 +27,14 @@ export class NgxCroppieComponent implements OnInit {
 		if(this.imgUrl === url) { return; }
 		this.imgUrl = url;
 		if (this._croppie) {
-			this.bindToCroppie(this.imageUrl, this.points, 0);
+			this.bindToCroppie(this.imageUrl, this.points, this.defaultZoom);
 		}
 	}
 
 	ngOnInit(): void {
 		// https://github.com/Foliotek/Croppie/issues/470 :-( )
 		this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
-		this.bindToCroppie(this.imageUrl, this.points, 0);
+		this.bindToCroppie(this.imageUrl, this.points, this.defaultZoom);
 	}
 
 	private bindToCroppie(url: string, points: number[], zoom: number){
