@@ -13,37 +13,31 @@ export type Type = 'canvas' | 'base64' | 'html' | 'blob' | 'rawcanvas';
 export class NgxCroppieComponent implements OnInit {
 	@ViewChild('imageEdit') imageEdit: ElementRef;
 	@Input() croppieOptions: CroppieOptions;
-
-	private imgUrl: string;
-	get imageUrl(): string {
-		return this.imgUrl;
-	}
-	@Input()
-	set imageUrl(url: string) {
-		console.log('new image');
-		if(this.imgUrl === url) { return; }
-		this.imgUrl = url;
-		if (this._croppie) {
-			this._croppie.bind({ url: this.imgUrl, points: this.points });
-		}
-	}
-
 	@Input() points: number[];
-	@Input() bind: (img: string) => void;
 	@Input() outputFormatOptions: ResultOptions = { type: 'base64', size: 'viewport' };
 	@Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>
 		= new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
 	private _croppie: Croppie;
+	private imgUrl: string;
+	get imageUrl(): string {
+		return this.imgUrl;
+	}
+	@Input() set imageUrl(url: string) {
+		if(this.imgUrl === url) { return; }
+		this.imgUrl = url;
+		if (this._croppie) {
+			this.bindToCroppie(this.imageUrl, this.points, 0);
+		}
+	}
+
 	ngOnInit(): void {
 		// https://github.com/Foliotek/Croppie/issues/470 :-( )
 		this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
+		this.bindToCroppie(this.imageUrl, this.points, 0);
+	}
 
-		this._croppie.bind({
-			url: this.imageUrl, points: this.points
-		});
-		this.bind = (img: string) => {
-			this._croppie.bind({ url: this.imageUrl, points: this.points });
-		};
+	private bindToCroppie(url: string, points: number[], zoom: number){
+		this._croppie.bind({ url, points, zoom });
 	}
 
 	newResult() {
