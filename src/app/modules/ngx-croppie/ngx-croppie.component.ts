@@ -32,8 +32,7 @@ export class NgxCroppieComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		// https://github.com/Foliotek/Croppie/issues/470 :-( )
-		this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
+		this._croppie = new Croppie(this.imageEdit.nativeElement, this.croppieOptions);
 		this.bindToCroppie(this.imageUrl, this.points, this.defaultZoom);
 	}
 
