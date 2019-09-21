@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, EventEmitter, Output, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 import * as Croppie from 'croppie';
 import { CroppieOptions, ResultOptions, CropData } from 'croppie';
@@ -10,8 +10,8 @@ export type Type = 'canvas' | 'base64' | 'html' | 'blob' | 'rawcanvas';
 	selector: 'ngx-croppie',
 	template: `<div #imageEdit (update)="newResult()"></div>`
 })
-export class NgxCroppieComponent implements OnInit {
-	@ViewChild('imageEdit') imageEdit: ElementRef;
+export class NgxCroppieComponent implements AfterViewInit {
+	@ViewChild('imageEdit', { static: false }) imageEdit: ElementRef;
 	@Input() croppieOptions: CroppieOptions;
 	@Input() points: number[];
 	@Input() outputFormatOptions: ResultOptions = { type: 'base64', size: 'viewport' };
@@ -31,7 +31,7 @@ export class NgxCroppieComponent implements OnInit {
 		}
 	}
 
-	ngOnInit(): void {
+	ngAfterViewInit(): void {
 		this._croppie = new Croppie(this.imageEdit.nativeElement, this.croppieOptions);
 		this.bindToCroppie(this.imageUrl, this.points, this.defaultZoom);
 	}
