@@ -7,16 +7,16 @@ import { NgxCroppieComponent } from './modules/ngx-croppie/ngx-croppie.component
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'app works';
-  @ViewChild('ngxCroppie') ngxCroppie: NgxCroppieComponent;
+  @ViewChild('ngxCroppie', { static: false }) ngxCroppie: NgxCroppieComponent;
 
   widthPx = '400';
   heightPx = '400';
   imageUrl = '';
   currentImage: string;
   croppieImage: string;
-  editedImage:string;
+  editedImage: string;
 
   public get imageToDisplay() {
     if (this.currentImage) { return this.currentImage; }
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit{
   }
 
   cancelCroppieEdit() {
-    this.croppieImage = this.currentImage;
+    this.croppieImage = '';
   }
 
   imageUploadEvent(evt: any) {
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit{
     if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif' && file.type !== 'image/jpg') { return; }
     const fr = new FileReader();
     fr.onloadend = (loadEvent) => {
-      this.croppieImage = fr.result;
+      this.croppieImage = <string>fr.result;
     };
     fr.readAsDataURL(file);
   }
@@ -75,4 +75,3 @@ export class AppComponent implements OnInit{
   }
 
 }
-
